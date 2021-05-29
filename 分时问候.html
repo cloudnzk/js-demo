@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分时问候</title>
+    <style>
+        div {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="" alt="">
+        <p></p>
+    </div>
+    <script>
+        let img = document.querySelector('img');
+        let p = document.querySelector('p');
+
+        let now = new Date().getHours();
+        if (now <= 12) {
+            img.src = './image/76336892_p0.png';   //直接赋值修改属性
+            p.innerText = '早上好';
+        }
+        else if (now >= 12 && now <= 17) {
+            //img.src = './image/77559996_p0.png';
+            img.setAttribute('src', './image/77559996_p0.png'); //修改属性值
+            p.innerText = '下午好';
+        }
+        else {
+            img.src = './image/83061392_p0_master1200.jpg';
+            p.innerText = '晚上好';
+        }
+
+    </script>
+</body>
+
+</html>
