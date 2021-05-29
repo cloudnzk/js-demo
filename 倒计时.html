@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #left-time {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <p>距高考还有</p> -->
+    <div id="left-time"></div>
+    <script>
+        function refresh_time() {
+            let left_time = document.getElementById('left-time');
+            let end_time = new Date('2021-6-7 09:00:00').getTime();
+            let start_time = Date.now();
+            let times = (end_time - start_time) / 1000;
+            if (times <= 0) {
+                left_time.innerHTML = '2021高考已结束';
+                clearInterval(refresh_time);
+                return;
+            }
+            let days = parseInt(times / 60 / 60 / 24); //取整
+            let hours = parseInt(times / 60 / 60 % 24);
+            let minutes = parseInt(times / 60 % 60);
+            let seconds = parseInt(times % 60);
+            left_time.innerHTML = '距离高考还有' + days + '天' + hours + '时' + minutes + '分' + seconds + '秒';
+        }
+        // refresh_time();
+        //使用setInterval()方法重复调用某个函数，每次调用有一定的时间间隔
+        setInterval(refresh_time, 1000);
+    </script>
+</body>
+
+</html>
