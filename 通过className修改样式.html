@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过className修改样式</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .change {
+            background-color: purple;
+            color: #fff;
+            font-size: 25px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first">文本</div>
+    <script>
+        /*
+        *使用element.style 获得修改元素样式，如果样式比较少，或功能简单的情况下使用
+        *可以修改class属性，来更换一种样式，适用于样式多，功能复杂的情况
+        */
+        let elem = document.querySelector('.first');
+        elem.class = '';
+        elem.onclick = function () {
+            //保留原类名，多类名选择器
+            this.className = 'first change';
+        }
+    </script>
+</body>
+
+</html>
