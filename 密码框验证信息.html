@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码框验证信息</title>
+    <style>
+        div {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        .message {
+            display: inline-block;
+            font-size: 12px;
+            color: #999;
+            background: url(images/mess.png) no-repeat left center;
+            padding-left: 20px;
+        }
+
+        .wrong {
+            color: red;
+            background-image: url(images/wrong.png);
+        }
+
+        .right {
+            color: green;
+            background-image: url(images/right.png);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="register">
+        <input type="password" class="ipt">
+        <p class="message">请输入6~16位密码</p>
+    </div>
+
+    <script>
+        let input = document.querySelector('input');
+        let msg = document.querySelector('.message');
+
+        input.onblur = function () {
+            let len = this.value.length;
+            if (len < 6 || len > 16) {
+                // alert('输入有误');
+                msg.className = 'message wrong';
+                msg.innerText = '您输入的位数不是6~16位';
+            }
+            else {
+                msg.className = 'message right';
+                msg.innerText = '输入格式正确';
+            }
+        }
+
+        // input.focus = function () {
+        // }
+    </script>
+</body>
+
+</html>
