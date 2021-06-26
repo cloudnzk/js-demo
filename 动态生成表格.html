@@ -61,6 +61,27 @@
             subject: 'JavaScript',
             score: 0
         }];
+
+        var tbody = document.querySelector('tbody');
+        for(let data of datas){
+            let tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for(attr in data){
+                let td = document.createElement('td');
+                td.innerHTML = data[attr];
+                tr.appendChild(td);
+            }
+            let td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+        }
+        // 删除操作
+        let as = document.querySelectorAll('a');
+        for(let a of as){
+            a.onclick = function(){
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
     </script>
 </body>
 </html>
