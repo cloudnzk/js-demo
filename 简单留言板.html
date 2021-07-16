@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单留言板</title>
+</head>
+<body>
+    <textarea name="" id="" cols="30" rows="10">123</textarea>
+    <button>留言</button>
+    <ul>
+
+    </ul>
+    <script>
+        let text = document.querySelector('textarea');
+        let btn = document.querySelector('button');
+        let ul = document.querySelector('ul');
+        
+        btn.onclick = function(){
+            if(text.value === ''){
+                alert('什么都没有输入');
+                return false;
+            }
+            else{
+                let li = document.createElement('li');
+                //javascript:; 阻止链接跳转
+                li.innerHTML = text.value + "<a href='javascript:;'>删除<a/>";
+                // ul.appendChild(li);
+                ul.insertBefore(li,ul.children[0]); //新发布的显示在上面
+
+                let as = document.querySelectorAll('a');
+                for(let a of as){
+                    a.onclick = function(){
+                        // 删除a的父亲li
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
