@@ -11,7 +11,12 @@
 <body>
     我是一段不愿意分享的文字
     <script>
+        //contextmenu 事件会在用户尝试打开上下文菜单时被触发
         document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        })
+        //selectstart 鼠标选中事件
+        document.addEventListener('selectstart', function (e) {
             e.preventDefault();
         })
     </script>
