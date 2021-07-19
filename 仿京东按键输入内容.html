@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿京东按键输入内容</title>
+</head>
+
+<body>
+    <input type="text">
+    <script>
+        let search = document.querySelector('input');
+        //按s键让搜索框获得焦点，获得焦点的方法：focus()
+        //在这里使用keyup事件，弹起的时候触发不会在搜索框输入s
+        document.addEventListener('keyup', function (e) {
+            if (e.keyCode === 83) {
+                search.focus();
+            }
+        });
+    </script>
+</body>
+
+</html>
