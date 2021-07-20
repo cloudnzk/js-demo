@@ -25,7 +25,6 @@
             let times = (end_time - start_time) / 1000;
             if (times <= 0) {
                 left_time.innerHTML = '2021高考已结束';
-                clearInterval(refresh_time);
                 return;
             }
             let days = parseInt(times / 60 / 60 / 24); //取整
