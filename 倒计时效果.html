@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时效果</title>
+    <style>
+        div {
+            margin: 200px;
+        }
+
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        let hour = document.querySelector('.hour');
+        let minute = document.querySelector('.minute');
+        let second = document.querySelector('.second');
+        function refresh_time() {
+            let end_time = new Date('2021-7-21 09:00:00').getTime();
+            let start_time = Date.now();
+            let times = (end_time - start_time) / 1000;
+            let days = parseInt(times / 60 / 60 / 24); //取整
+            let hours = parseInt(times / 60 / 60 % 24);
+            let minutes = parseInt(times / 60 % 60);
+            let seconds = parseInt(times % 60);
+
+            hour.innerText = hours;
+            minute.innerText = minutes;
+            second.innerText = seconds;
+            // left_time.innerHTML = '距离高考还有' + days + '天' + hours + '时' + minutes + '分' + seconds + '秒';
+        }
+        //先调用一下这个函数，避免刷新页面有空白
+        refresh_time();
+        //使用setInterval()方法重复调用某个函数，每次调用有一定的时间间隔
+        setInterval(refresh_time, 1000);
+    </script>
+</body>
+
+</html>
