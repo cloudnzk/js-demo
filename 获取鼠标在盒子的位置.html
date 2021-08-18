@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取鼠标在盒子的位置</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        let box = document.querySelector('.box');
+        box.addEventListener('mousemove', function (e) {
+            let x = e.pageX - this.offsetLeft;
+            let y = e.pageY - this.offsetTop;
+            this.innerHTML = 'x坐标是' + x + ' y坐标是' + y;
+        });
+    </script>
+</body>
+
+</html>
