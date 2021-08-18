@@ -177,6 +177,7 @@
                 login.style.left = e.pageX - x + 'px';
                 login.style.top = e.pageY - y + 'px';
             }
+            //因为鼠标在登录框是不动的，所以这里要用document
             document.addEventListener('mousemove', move);
 
             //（3）鼠标弹起，取消拖拽
