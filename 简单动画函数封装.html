@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单动画函数封装</title>
+    <style>
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        //两个参数：目标对象，目标位置
+        function animate(obj, target) {
+            //清除之前的定时器。如果一直点击按钮，开太多定时器速度会变快
+            clearInterval(obj.timer);
+            //用对象属性的方式，给不同的元素使用不同的定时器。如果每次调用函数都定义一个定时器会占用太大内存
+            obj.timer = setInterval(function () {
+                //停止动画，清除定时器即可。注意要写在定时器里面
+                if (obj.offsetLeft >= target) {
+                    clearInterval(timer);
+                }
+                obj.style.left = obj.offsetLeft + 5 + 'px';
+            }, 30);
+        }
+        let box = document.querySelector('.box');
+        animate(box, 400);
+    </script>
+</body>
+
+</html>
